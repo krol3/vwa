@@ -25,6 +25,20 @@ psql [database_name] < db/vwa.sql
 psql -d [database_name] //connect to that database, for check
 \dt //To see table
 ```
+#### Install Postgres as container
+```
+docker run --name postgres01 -e POSTGRES_PASSWORD=helloworld -d -p 5432:5432 postgres
+```
+Execute inside Postgres container
+```
+docker exec -ti postgres01 psql -U postgres
+```
+Psql
+```
+CREATE USER vwa_user;
+CREATE DATABASE vwa;
+GRANT ALL PRIVILEGES ON DATABASE vwa TO vwa_user;
+```
 
 #### Installing VWA
 ```
